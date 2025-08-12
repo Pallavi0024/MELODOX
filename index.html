@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sonix</title>
+  <link rel="stylesheet" href="output.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-900 text-white flex flex-col min-h-screen">
+
+  <!-- Navbar -->
+  <nav class="flex justify-between items-center p-4 bg-gray-950 shadow-md">
+    <div class="flex items-center space-x-2">
+  
+      <h1 class="text-xl font-bold text-blue-800">MELODOX</h1>
+    </div>
+    <div class="flex items-center space-x-2">
+      
+      <button onclick="location.href='Login.html?mode=login'" class="bg-purple-600 px-4 py-2 rounded-full hover:bg-purple-700">Login</button>
+      <button onclick="location.href='Sign Up.html?mode=signup'" class="border border-white px-4 py-2 rounded-full hover:bg-gray-800">Sign Up</button>
+    </div>
+  </nav>
+
+  <div class="flex flex-grow">
+    <!-- Sidebar -->
+    <aside class="w-64 hidden lg:block bg-gray-950 p-4 border-r border-gray-800">
+      <div class="relative mb-6">
+        <i class="fa fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+        <input id="input" type="text" placeholder="Search..."
+          class="w-full pl-10 pr-3 py-2 rounded-lg bg-gray-700 text-white placeholder-gray-400">
+      </div>
+      <div class="space-y-4">
+        <div class="flex justify-between items-center text-white font-semibold">
+          <h2 class="text-md">Create Playlist</h2>
+          <i class="fa-solid fa-plus cursor-pointer" onclick="checkLoginBeforePlaylist()"></i>
+        </div>
+        
+        <div class="mt-6">
+          <h3 class="text-lg font-bold text-white px-4">Favorites ❤️</h3>
+          <ul id="fav-playlist" class="mt-2"></ul>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Songs Grid -->
+    <main class="flex-1 p-4">
+      <div id="songs" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+    </main>
+  </div>
+
+  <!-- Music Player -->
+  <footer class="bg-black text-white p-4 w-full fixed bottom-0 flex items-center z-50 space-x-4">
+    <img id="player-img" src="" alt="cover" class="w-12 h-12 rounded-md hidden">
+    <div class="flex flex-col">
+      <span id="player-title" class="text-sm">🎵 No song playing</span>
+      <span id="player-artist" class="text-xs text-gray-400"></span>
+    </div>
+    <audio id="audio-player" controls class="flex-grow max-w-full ml-4"></audio>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
